@@ -1,0 +1,75 @@
+*{
+   font-family: "IBM Plex Mono", monospace;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-size: small;
+}
+
+.navdiv{
+  margin:21px 101px;
+  display:flex;
+  flex-direction:row;
+  justify-content:space-evenly;
+}
+
+.codexa{
+  color:rgb(54, 50, 50);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: "IBM Plex Mono", monospace;
+}
+.codexabut:hover{
+  text-shadow: 0px 0px 3px burlywood;
+}
+
+.leftdiv{
+  width:25vw;
+  display:flex;
+  justify-content:space-around;
+}
+
+.rightdiv{
+  width:25vw;
+  display:flex;
+  justify-content:space-around;
+}
+
+/* Keep your buttons exactly the same, only align the icons */
+
+.leftdiv button,
+.rightdiv button{
+  display:flex;
+  align-items:center;
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+/* Dropdown arrows */
+
+.leftdiv button h3,
+.rightdiv button h3{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-left:2px;
+  margin-top:1px;
+
+  font-size:18px;
+  font-weight:normal;
+  line-height:1;
+}
+
+/* Settings icon (MdOutlineSettings) */
+
+.rightdiv button svg:first-child{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-right:4px;
+
+  font-size:16px;
+}

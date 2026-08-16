@@ -1,0 +1,106 @@
+/* Dark overlay */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"IBM Plex Mono", monospace;
+}
+
+
+.saveOverlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.35);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+/* Card */
+.saveCard{
+    position: fixed;
+    top:40ch;
+    left:40vw;
+    width:320px;
+    background:#fff;
+    border-radius:8px;
+    padding:18px;
+    border:1px solid #ddd;
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.saveCard p{
+    font-size:11px;
+    color:#333;
+    line-height:1.5;
+}
+
+.saveCard span{
+    color:#5f5af6;
+    font-weight:600;
+    margin-left:4px;
+}
+
+/* Form */
+.saveForm{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+/* Input */
+.saveForm input[type="text"]{
+    width:100%;
+    height:32px;
+    padding:0 10px;
+
+    border:1px solid #d8d8d8;
+    border-radius:6px;
+
+    outline:none;
+
+    font-size:11px;
+    font-family:"IBM Plex Mono", monospace;
+}
+
+.saveForm input[type="text"]:focus{
+    border-color:#5f5af6;
+    box-shadow:0 0 0 2px rgba(95,90,246,.12);
+}
+
+/* Button */
+.saveForm button{
+    height:32px;
+
+    border:none;
+    border-radius:6px;
+
+    background:#5f5af6;
+    color:#fff;
+
+    cursor:pointer;
+
+    font-size:11px;
+    font-family:"IBM Plex Mono", monospace;
+
+    transition:.2s;
+}
+
+.saveForm button:hover{
+    background:#4d47ef;
+}
+
+/* Error */
+.error{
+    color:#e53935;
+    font-size:10px;
+    font-weight:500;
+}

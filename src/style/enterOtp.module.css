@@ -1,0 +1,168 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.container{
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#f8fafc;
+    font-family:"Inter",sans-serif;
+}
+
+/* ---------- Card ---------- */
+
+.card{
+    width:100%;
+    max-width:360px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:35px 30px;
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.05),
+        0 2px 8px rgba(0,0,0,.04);
+}
+
+/* ---------- Heading ---------- */
+
+.card h1{
+    text-align:center;
+    font-size:2rem;
+    font-weight:700;
+    color:#111827;
+}
+
+/* ---------- Subtitle ---------- */
+
+.subtitle{
+    text-align:center;
+    font-size:14px;
+    color:#6b7280;
+    line-height:1.6;
+    margin-top:-6px;
+}
+
+/* ---------- Form ---------- */
+
+.form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+/* ---------- OTP Input ---------- */
+
+.form input{
+    width:100%;
+    height:48px;
+
+    border:1px solid #d6dbe5;
+    border-radius:12px;
+
+    padding:0 16px;
+
+    font-size:18px;
+    letter-spacing:6px;
+    text-align:center;
+
+    outline:none;
+
+    transition:.25s;
+}
+
+.form input::placeholder{
+    letter-spacing:0;
+    font-size:15px;
+    color:#9ca3af;
+}
+
+.form input:focus{
+    border-color:#4f46e5;
+    box-shadow:0 0 0 3px rgba(79,70,229,.12);
+}
+
+/* ---------- Verify Button ---------- */
+
+.submitBtn{
+    width:100%;
+    height:48px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#111827;
+    color:#fff;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.submitBtn:hover{
+    background:#1f2937;
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(17,24,39,.15);
+}
+
+/* ---------- Resend ---------- */
+
+.resend{
+    text-align:center;
+    font-size:14px;
+    color:#6b7280;
+}
+
+.resend span{
+    color:#4f46e5;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.resend span:hover{
+    text-decoration:underline;
+}
+
+/* ---------- Timer ---------- */
+
+.timer{
+    text-align:center;
+    font-size:13px;
+    color:#9ca3af;
+}
+
+/* ---------- Mobile ---------- */
+
+@media(max-width:768px){
+
+    .card{
+        width:92%;
+        padding:28px 22px;
+    }
+
+    .card h1{
+        font-size:1.8rem;
+    }
+
+    .form input,
+    .submitBtn{
+        height:44px;
+    }
+}

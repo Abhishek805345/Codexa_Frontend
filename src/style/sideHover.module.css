@@ -1,0 +1,99 @@
+*{ margin:0; padding:0; box-sizing:border-box; font-family:"IBM Plex Mono", monospace; } .liabut{ font-size: x-small; } .outerdiv{ padding:5px 11px; border:1px solid black; display: flex; gap:30px; } .innerdiv{ display: flex; gap:70px; justify-content: space-around; } .innerdiv>p{ font-size: x-small; }
+/* Side Panel */
+
+.verticalouterdiv{
+
+    position:absolute;
+
+    top:87px;
+    left:0;
+
+    width:170px;
+
+    height:calc(100vh - 40px);
+
+    padding:10px;
+
+    background:#6d6c6c;
+
+    border-right:1px solid #555;
+
+    overflow-y:auto;
+
+    animation:slidePanel .25s ease;
+}
+
+/* Animation */
+
+@keyframes slidePanel{
+
+    from{
+
+        transform:translateX(-100%);
+
+        opacity:0;
+    }
+
+    to{
+
+        transform:translateX(0);
+
+        opacity:1;
+    }
+}
+
+/* Heading */
+
+.verticalouterdiv h4{
+
+    color:#fff;
+
+    font-size:11px;
+
+    margin-bottom:14px;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+    padding-bottom:8px;
+}
+
+/* File List */
+
+.fileholder{
+
+    list-style:none;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+}
+
+/* Links */
+
+.Links{
+    text-decoration:none;
+
+    color:#d8d8d8;
+
+    display:block;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:8px;
+
+    transition:.25s;
+}
+
+.Links li{
+
+    padding:7px 11px;
+
+    font-size:x-small;
+}
+
+.Links:hover{
+    color:black;
+    transform:translateX(3.5px);
+}

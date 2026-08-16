@@ -1,0 +1,92 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"IBM Plex Mono", monospace;
+}
+
+.outerdiv{
+    position:fixed;
+
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+
+    width:300px;
+
+    background:#ffffff;
+
+    border:1px solid #e5e5e5;
+    border-radius:10px;
+
+    padding:18px;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+    z-index:9999;
+}
+
+/* ================= TEXT ================= */
+
+.outerdiv p{
+    font-size:11px;
+    line-height:1.6;
+    color:#444;
+    text-align:center;
+}
+
+/* ================= BUTTONS ================= */
+
+.delbut,
+.closebut{
+    width:100%;
+    height:30px;
+
+    border-radius:6px;
+
+    font-size:11px;
+    cursor:pointer;
+
+    transition:.2s ease;
+}
+
+/* Delete Button */
+
+.delbut{
+    border:1px solid #e5484d;
+    background:#e5484d;
+    color:white;
+}
+
+.delbut:hover{
+    background:#cf3d42;
+    border-color:#cf3d42;
+}
+
+/* Close Button */
+
+.closebut{
+    border:1px solid #d9d9d9;
+    background:#f5f5f5;
+    color:#444;
+}
+
+.closebut:hover{
+    background:#ececec;
+}
+
+/* ================= OPTIONAL BACKDROP ================= */
+
+.overlay{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.28);
+    backdrop-filter:blur(2px);
+
+    z-index:9998;
+}

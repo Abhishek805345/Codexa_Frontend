@@ -1,0 +1,373 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"IBM Plex Mono", monospace;
+}
+
+.outerdiv{
+    display:grid;
+
+    grid-template-columns:65vw 34.5vw;
+    grid-template-rows:61vh 27.5vh;
+
+    gap:4px;
+    padding:2px;
+}
+
+/* ================= CODE EDITOR ================= */
+
+.textdiv{
+
+    width:100%;
+    height:100%;
+
+    border:1px solid #3b3b3b;
+
+    border-radius:8px;
+
+    background:rgb(33,31,31);
+
+    color:white;
+
+    padding:6px;
+
+    resize:none;
+
+    outline:none;
+
+    font-size:11px;
+
+    font-family:"IBM Plex Mono", monospace;
+}
+
+.textdiv:focus{
+
+    border-color:#5f5af6;
+}
+
+/* ================= OUTPUT ================= */
+
+.output{
+
+    width:92%;
+
+    height:98%;
+
+    border:1px solid #3b3b3b;
+
+    border-radius:8px;
+
+    background:rgb(33,31,31);
+
+    color:greenyellow;
+
+    padding:6px;
+
+    font-size:11px;
+
+    overflow:auto;
+}
+
+/* ================= BUTTON PANEL ================= */
+
+.but{
+
+    position:absolute;
+
+    left:60.6vw;
+    bottom:18px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:6px;
+
+    width:95px;
+}
+
+.but select{
+
+    height:28px;
+
+    border:1px solid #d8d8d8;
+
+    border-radius:6px;
+
+    padding:0 6px;
+
+    outline:none;
+
+    background:white;
+
+    cursor:pointer;
+
+    font-size:11px;
+}
+.selbut{
+    width: 48px;
+}
+
+.runbut{
+
+    height:28px;
+    width: 48px;
+    border:1px solid #d8d8d8;
+
+    border-radius:6px;
+
+    background:white;
+
+    cursor:pointer;
+
+    font-size:11px;
+
+    transition:.25s ease;
+}
+
+.runbut:hover{
+
+    border-color:#5f5af6;
+
+    color:#5f5af6;
+
+    background:#fafaff;
+}
+
+/* ================= CHAT PANEL ================= */
+
+.chatdiv{
+
+    grid-column:2;
+    grid-row:1 / span 2;
+
+    display:flex;
+    flex-direction:column;
+
+    border:1px solid #d9d9d9;
+
+    border-radius:8px;
+
+    background:#ffffff;
+
+    overflow:hidden;
+}
+
+/* ================= USER LIST ================= */
+
+.userlist{
+
+    padding:10px;
+
+    border-bottom:1px solid #ececec;
+
+    background:#fafafa;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    color:#333;
+
+    flex-shrink:0;
+}
+
+.userlist p{
+
+    display:inline-block;
+
+    margin:6px 6px 0 0;
+
+    padding:4px 8px;
+
+    border-radius:6px;
+
+    background:#f1f3ff;
+
+    color:#5f5af6;
+
+    font-size:11px;
+
+    font-weight:500;
+}
+
+/* ================= MESSAGE LIST ================= */
+
+.chatdiv ul{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    list-style:none;
+
+    padding:10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    background:#fcfcfc;
+}
+
+.chatdiv ul::-webkit-scrollbar{
+
+    width:5px;
+}
+
+.chatdiv ul::-webkit-scrollbar-thumb{
+
+    background:#cfcfcf;
+
+    border-radius:20px;
+}
+
+.chatdiv ul::-webkit-scrollbar-thumb:hover{
+
+    background:#b9b9b9;
+}
+
+/* ================= MESSAGE CARD ================= */
+
+.chatdiv li{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+    padding:8px 10px;
+
+    border:1px solid #ececec;
+
+    border-radius:8px;
+
+    background:#ffffff;
+
+    transition:.2s ease;
+
+    word-break:break-word;
+}
+
+.chatdiv li:hover{
+
+    background:#f8f8fc;
+
+    border-color:#dddddd;
+}
+
+/* Username */
+
+.chatdiv li h4{
+
+    margin:0;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    color:#5f5af6;
+}
+
+/* Message */
+
+.chatdiv li p{
+
+    margin:0;
+
+    font-size:11px;
+
+    color:#333;
+
+    line-height:1.6;
+
+    white-space:pre-wrap;
+}
+
+/* Time */
+
+.chatdiv li h5{
+
+    margin:0;
+
+    align-self:flex-end;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:10px;
+
+    font-weight:400;
+
+    color:#999;
+}
+
+/* ================= INPUT AREA ================= */
+
+.chatdiv input{
+
+    width:calc(100% - 20px);
+
+    margin:10px;
+
+    height:32px;
+
+    border:1px solid #d8d8d8;
+
+    border-radius:6px;
+
+    padding:0 10px;
+
+    outline:none;
+
+    font-size:11px;
+}
+
+.chatdiv input:focus{
+
+    border-color:#5f5af6;
+
+    box-shadow:0 0 0 2px rgba(95,90,246,.12);
+}
+
+/* ================= SEND BUTTON ================= */
+
+.chatdiv button{
+
+    margin:0 10px 10px;
+
+    height:32px;
+
+    border:none;
+
+    border-radius:6px;
+
+    background:#5f5af6;
+
+    color:#ffffff;
+
+    cursor:pointer;
+
+    font-size:11px;
+
+    font-family:"Inter",sans-serif;
+
+    font-weight:600;
+
+    transition:.25s ease;
+}
+
+.chatdiv button:hover{
+
+    background:#4d47ef;
+
+    transform:translateY(-1px);
+
+    box-shadow:0 6px 14px rgba(95,90,246,.25);
+}

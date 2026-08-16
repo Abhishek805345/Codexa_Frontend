@@ -1,0 +1,29 @@
+*{
+   font-family: "IBM Plex Mono", monospace;
+   margin: 0%;
+   padding:0%;
+   box-sizing: border-box;
+}
+.outerdiv{
+  border:1px solid rgb(109, 108, 108);
+  background-color: rgb(109, 108, 108);
+  border-radius: 1.5rem;
+  color:white;
+  display: flex;
+  width:97vw;
+  justify-content: space-around;
+  margin:0% 20px;
+  padding:20px;
+}
+.innerdiv{
+ display: flex;
+ flex-direction: column;
+ gap:5px;
+}
+.Links{
+ color:rgb(187, 181, 181);
+ text-decoration: none;
+}
+.Links:hover{
+  color:black;
+}

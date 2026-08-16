@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,500&display=swap");
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    padding:60px 20px 100px;
+
+    background:#faf9f8;
+
+    background-image:
+        radial-gradient(circle at center, rgba(108,99,255,.08) 0%, transparent 70%),
+        linear-gradient(rgba(0,0,0,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,.035) 1px, transparent 1px);
+
+    /* Smaller grid */
+    background-size:
+        cover,
+        14px 14px,
+        14px 14px;
+}
+
+.heroBadge{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:11px;
+    color:#6256ff;
+    background:#f0ecff;
+
+    padding:7px 18px;
+    border-radius:999px;
+
+    margin-bottom:28px;
+}
+
+.heroSubtitle{
+    font-family:"IBM Plex Mono", monospace;
+    font-size:10px;
+    letter-spacing:6px;
+    color:#645cff;
+
+    margin-bottom:18px;
+}
+
+.heroTitle{
+    font-family:"Inter", sans-serif;
+    font-size:58px;
+    font-weight:800;
+    line-height:.95;
+
+    text-align:center;
+    color:#17152f;
+}
+
+.italic{
+    display:block;
+
+    font-family:"Cormorant Garamond", serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:60px;
+}
+
+.gradient{
+    background: linear-gradient(90deg,#6c63ff,#8b5cf6);
+
+    background-clip: text;          /* Standard property */
+    -webkit-background-clip: text;  /* Safari & Chrome */
+
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.heroDescription{
+    width:600px;
+    max-width:90%;
+
+    margin-top:28px;
+
+    text-align:center;
+
+    font-family:"Inter", sans-serif;
+    font-size:18px;
+    line-height:1.8;
+    color:#5e5e68;
+}
+
+.heroButtons{
+    display:flex;
+    gap:16px;
+
+    margin-top:38px;
+}
+
+.primaryBtn{
+    padding:14px 28px;
+
+    background:#6558ff;
+    color:white;
+
+    border:none;
+    border-radius:12px;
+
+    font-size:15px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.primaryBtn:hover{
+    background:#5244ff;
+    transform:translateY(-2px);
+}
+
+.secondaryBtn{
+    padding:14px 28px;
+
+    background:white;
+
+    border:1px solid #d9d9d9;
+    border-radius:12px;
+
+    font-size:15px;
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.secondaryBtn:hover{
+    background:#f7f7f7;
+}
+
+.heroFeatures{
+    display:flex;
+    gap:30px;
+
+    margin-top:28px;
+
+    font-family:"Inter", sans-serif;
+    font-size:13px;
+    color:#707070;
+}
+
+.heroImage{
+    width:1100px;
+    max-width:92%;
+
+    margin-top:70px;
+
+    border-radius:18px;
+    overflow:hidden;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.10);
+}
+
+.heroImage img{
+    width:100%;
+    display:block;
+}

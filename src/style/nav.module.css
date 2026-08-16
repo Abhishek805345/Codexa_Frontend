@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+  font-size:small;
+  color:rgb(109, 108, 108);
+  font-family: "IBM Plex Mono", monospace;
+}
+.outermostlayer{
+  margin:15px;
+  justify-content: space-around;
+  padding: 0px 20px;
+  display:flex;
+}
+.linklist{
+  display: flex;
+  gap:20px;
+}
+.linklist>li{
+list-style: none;
+text-decoration: none;
+}
+.links{
+  text-decoration: none;
+  color:rgb(109, 108, 108);
+}
+.search{
+  padding:13px 0px;
+}
+.searchlayer{
+  padding:13px 0px;
+}
+.searchbox{
+  border-radius: 0.8rem;
+  padding: 3px 5px; 
+  border: 1px solid rgb(109, 108, 108);
+  width: 300px;
+  color:rgb(109, 108, 108);
+  animation: searcher 0.5s linear 1 forwards ;
+}
+button{
+  border: none;
+  background-color: transparent;
+  animation: searcher 0.5s linear 1 forwards ;
+}
+button:hover{
+  color:#111827;
+  cursor: pointer;
+}
+
+@keyframes searcher {
+  from {
+    transform: scale(0);
+  }
+  to{
+    transform: scale(1.02);
+  }
+}
+
+

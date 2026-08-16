@@ -1,0 +1,142 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"IBM Plex Mono", monospace;
+}
+
+.outerdiv{
+    position: fixed;
+    top:30vh;
+    left:30vw;
+    width:340px;
+
+    margin:90px auto;
+
+    padding:18px;
+
+    background:#fff;
+
+    border:1px solid #e9e9e9;
+    border-radius:12px;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
+.outerdiv > p{
+
+    font-family:"Inter",sans-serif;
+
+    font-size:12px;
+
+    color:#555;
+
+    line-height:1.6;
+
+    margin-bottom:16px;
+}
+
+.outerdiv > p b{
+
+    color:#5f5af6;
+
+    font-weight:600;
+}
+
+.outerdiv form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.outerdiv input{
+
+    width:100%;
+
+    padding:10px 12px;
+
+    border:1px solid #dddddd;
+    border-radius:8px;
+
+    outline:none;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:11px;
+
+    transition:all .25s ease;
+}
+
+.outerdiv input:focus{
+
+    border-color:#5f5af6;
+
+    box-shadow:0 0 0 3px rgba(95,90,246,.08);
+}
+
+.outerdiv input[type="hidden"]{
+
+    display:none;
+}
+
+.outerdiv button{
+
+    padding:9px 16px;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-family:"Inter",sans-serif;
+
+    font-size:11px;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:all .25s ease;
+}
+
+/* Invite Button */
+
+.outerdiv button[type="submit"]{
+
+    background:#5f5af6;
+
+    color:#fff;
+}
+
+.outerdiv button[type="submit"]:hover{
+
+    background:#4f49f2;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(95,90,246,.25);
+}
+
+/* Back Button */
+
+.outerdiv button:last-child{
+
+    background:#fff;
+
+    color:#5f5af6;
+
+    border:1px solid #5f5af6;
+}
+
+.outerdiv button:last-child:hover{
+
+    background:#5f5af6;
+
+    color:#fff;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(95,90,246,.18);
+}

@@ -1,0 +1,415 @@
+.outerdiv {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 75vh;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(360px, 1.25fr);
+  align-items: center;
+  gap: clamp(20px, 4vw, 56px);
+  padding: clamp(36px, 7vw, 76px) clamp(24px, 7vw, 88px);
+  box-sizing: border-box;
+  color: #fff;
+  background: #07080a;
+}
+
+.outerdiv::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  z-index: -1;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.94));
+}
+
+.backdrops {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background: #07080a;
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.22) 56%, rgba(0, 0, 0, 0.74)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.8)),
+    var(--image);
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.15) contrast(1.04);
+  transform: scale(1.08);
+  animation: backdropCycle 20s infinite;
+  animation-delay: var(--delay);
+}
+
+.backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 72% 38%, rgba(255, 255, 255, 0.08), transparent 24%),
+    rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+}
+
+.copy {
+  position: relative;
+  z-index: 2;
+  min-height: 310px;
+  text-align: left;
+}
+
+.copySlide {
+  position: absolute;
+  inset: 0 auto auto 0;
+  max-width: 470px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: copyCycle 20s infinite;
+  animation-delay: var(--delay);
+}
+
+.copySlide h1 {
+  margin: 0 0 26px;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(58px, 8vw, 105px);
+  line-height: 0.9;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-shadow: 0 10px 34px rgba(0, 0, 0, 0.46);
+}
+
+.copySlide p {
+  max-width: 410px;
+  margin: 0 0 38px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.65;
+  font-weight: 650;
+}
+
+.copySlide button {
+  min-width: 148px;
+  border: 0;
+  border-radius: 8px;
+  padding: 15px 25px;
+  color: #fff;
+  background: var(--accent);
+  box-shadow: 0 16px 34px color-mix(in srgb, var(--accent) 34%, transparent);
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.slider {
+  position: relative;
+  z-index: 2;
+  height: clamp(270px, 41vw, 460px);
+  perspective: 1200px;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(190px, 27vw, 330px);
+  aspect-ratio: 0.82;
+  border-radius: 22px;
+  overflow: hidden;
+  background-image: var(--image);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 28px 68px rgba(0, 0, 0, 0.48);
+  animation: cardCycle 20s infinite cubic-bezier(0.76, 0, 0.24, 1);
+  animation-delay: var(--delay);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 5px solid rgba(255, 255, 255, 0);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  animation: frameCycle 20s infinite;
+  animation-delay: var(--delay);
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.72));
+}
+
+.card span {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+  font-weight: 800;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: labelCycle 20s infinite;
+  animation-delay: var(--delay);
+}
+
+.dots {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(18px, 4vw, 34px);
+  z-index: 3;
+  display: flex;
+  gap: 12px;
+  transform: translateX(-50%);
+}
+
+.dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+  animation: dotCycle 20s infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes backdropCycle {
+  0%,
+  18% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+
+  23%,
+  95% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes copyCycle {
+  0%,
+  17% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  22%,
+  95% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardCycle {
+  0%,
+  17% {
+    z-index: 5;
+    opacity: 1;
+    transform: translate(-50%, -50%) translateX(-70px) scale(1.16);
+  }
+
+  20%,
+  37% {
+    z-index: 4;
+    opacity: 0.84;
+    transform: translate(-50%, -50%) translateX(235px) scale(0.82) rotateY(-12deg);
+  }
+
+  40%,
+  57% {
+    z-index: 2;
+    opacity: 0.36;
+    transform: translate(-50%, -50%) translateX(470px) scale(0.66) rotateY(-20deg);
+  }
+
+  60%,
+  77% {
+    z-index: 1;
+    opacity: 0;
+    transform: translate(-50%, -50%) translateX(-445px) scale(0.62) rotateY(18deg);
+  }
+
+  80%,
+  97% {
+    z-index: 3;
+    opacity: 0.58;
+    transform: translate(-50%, -50%) translateX(-330px) scale(0.74) rotateY(14deg);
+  }
+
+  100% {
+    z-index: 5;
+    opacity: 1;
+    transform: translate(-50%, -50%) translateX(-70px) scale(1.16);
+  }
+}
+
+@keyframes labelCycle {
+  0%,
+  17% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  22%,
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes frameCycle {
+  0%,
+  17% {
+    border-color: rgba(255, 255, 255, 0.96);
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+      0 0 0 1px rgba(255, 255, 255, 0.18);
+  }
+
+  22%,
+  100% {
+    border-color: rgba(255, 255, 255, 0);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+}
+
+@keyframes dotCycle {
+  0%,
+  17% {
+    background: #fff;
+    transform: scale(1.2);
+  }
+
+  22%,
+  100% {
+    background: rgba(255, 255, 255, 0.42);
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 800px) {
+  .outerdiv {
+    min-height: 82vh;
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 18px;
+    padding: 48px 20px 72px;
+  }
+
+  .copy {
+    min-height: 235px;
+  }
+
+  .copySlide {
+    max-width: 100%;
+  }
+
+  .copySlide h1 {
+    margin-bottom: 18px;
+    font-size: clamp(44px, 14vw, 68px);
+  }
+
+  .copySlide p {
+    max-width: 92%;
+    margin-bottom: 24px;
+  }
+
+  .slider {
+    height: 310px;
+  }
+
+  .card {
+    width: min(54vw, 230px);
+  }
+
+  @keyframes cardCycle {
+    0%,
+    17% {
+      z-index: 5;
+      opacity: 1;
+      transform: translate(-50%, -50%) translateX(0) scale(1.12);
+    }
+
+    20%,
+    37% {
+      z-index: 4;
+      opacity: 0.7;
+      transform: translate(-50%, -50%) translateX(145px) scale(0.76);
+    }
+
+    40%,
+    57% {
+      z-index: 2;
+      opacity: 0;
+      transform: translate(-50%, -50%) translateX(255px) scale(0.62);
+    }
+
+    60%,
+    77% {
+      z-index: 1;
+      opacity: 0;
+      transform: translate(-50%, -50%) translateX(-255px) scale(0.62);
+    }
+
+    80%,
+    97% {
+      z-index: 3;
+      opacity: 0.48;
+      transform: translate(-50%, -50%) translateX(-145px) scale(0.76);
+    }
+
+    100% {
+      z-index: 5;
+      opacity: 1;
+      transform: translate(-50%, -50%) translateX(0) scale(1.12);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .copySlide,
+  .card,
+  .card::before,
+  .card span,
+  .dots span {
+    animation: none;
+  }
+
+  .backdrop:first-child,
+  .copySlide:first-child {
+    opacity: 1;
+    transform: none;
+  }
+
+  .card {
+    opacity: 0;
+  }
+
+  .card:first-child {
+    z-index: 5;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
