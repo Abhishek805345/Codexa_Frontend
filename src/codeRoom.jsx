@@ -36,7 +36,9 @@ export function CodeRoom(){
 
 
   useEffect(()=>{
-     socket.current=io("https://codexa-backend-zhve.onrender.com");
+     socket.current=io("https://codexabackend.railway.internal",{
+       withCredentials: true;
+     });
 
         socket.current.emit("join-room",({roomid:roominfo._id,username:fullname}));
 
