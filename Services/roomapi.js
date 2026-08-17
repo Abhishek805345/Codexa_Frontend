@@ -1,5 +1,5 @@
 export const roomSaver=async (data)=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/save/room/info",{
+  const res=await fetch("https://api.codexa.sbs/api/save/room/info",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -11,7 +11,7 @@ export const roomSaver=async (data)=>{
 }
 
 export const roomFetcher=async (id)=>{
-  const res=await fetch(`https://codexabackend-production.up.railway.app/api/saved/room/${id}`,{
+  const res=await fetch(`https://api.codexa.sbs/api/saved/room/${id}`,{
     method:"GET"
   })
   const result=await res.json();
@@ -19,7 +19,7 @@ export const roomFetcher=async (id)=>{
 }
 
 export const interviewRoomFetcher=async (id)=>{
-  const res=await fetch(`https://codexabackend-production.up.railway.app/api/saved/interview/${id}`,{
+  const res=await fetch(`https://api.codexa.sbs/api/saved/interview/${id}`,{
     method:"GET"
   })
   const result=await res.json();
@@ -28,7 +28,7 @@ export const interviewRoomFetcher=async (id)=>{
 
 
 export const UserInviterAPI=async (data)=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/invite/user",{
+  const res=await fetch("https://api.codexa.sbs/api/invite/user",{
     method:'POST',
     headers:{
       "Content-Type":"application/json"
@@ -40,7 +40,7 @@ export const UserInviterAPI=async (data)=>{
 }
 
 export const thisRoomfetcher=async (id)=>{
-  const res=await fetch(`https://codexabackend-production.up.railway.app/api/code/room/${id}`,{
+  const res=await fetch(`https://api.codexa.sbs/api/code/room/${id}`,{
     method:"GET"
   })
   const result=await res.json();
@@ -48,7 +48,7 @@ export const thisRoomfetcher=async (id)=>{
 }
 
 export const filesaverapi=async (data)=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/save/file",{
+  const res=await fetch("https://api.codexa.sbs/api/save/file",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -64,7 +64,7 @@ export const codeOuputfetcherapi=async (data,language)=>{
     code:data,
     language:language
   }
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/fetch/output",{
+  const res=await fetch("https://api.codexa.sbs/api/fetch/output",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -77,7 +77,7 @@ export const codeOuputfetcherapi=async (data,language)=>{
 
 //api to fetch user hosted rooms
 export const findHostedRooms=async (userid)=>{
-  const res=await fetch(`https://codexabackend-production.up.railway.app/api/hosted/rooms/${userid}`,{
+  const res=await fetch(`https://api.codexa.sbs/api/hosted/rooms/${userid}`,{
     method:"GET"
   })
   const result=await res.json();
@@ -86,7 +86,7 @@ export const findHostedRooms=async (userid)=>{
 
 
 export const deleteRoomfilesapi=async (id)=>{
-  const res=await fetch(`https://codexabackend-production.up.railway.app/api/del/roomfile/${id}`,{
+  const res=await fetch(`https://api.codexa.sbs/api/del/roomfile/${id}`,{
     method:"DELETE"
   })
   const result=await res.json();
@@ -96,7 +96,7 @@ export const deleteRoomfilesapi=async (id)=>{
 //to update the roomfile code
 
 export const fileCodeUpdaterAPI=async (id,data)=>{
-  const res=await fetch(`https://codexabackend-production.up.railway.app/api/update/file/code/${id}`,{
+  const res=await fetch(`https://api.codexa.sbs/api/update/file/code/${id}`,{
     method:'PUT',
     headers:{
       "Content-Type":"application/json"
@@ -111,7 +111,7 @@ export const fileCodeUpdaterAPI=async (id,data)=>{
 
 //to find the user joined rooms
 export const findJoinedRoomsAPI=async (roomarray)=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/find/user/joined/rooms",{
+  const res=await fetch("https://api.codexa.sbs/api/find/user/joined/rooms",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -125,7 +125,7 @@ export const findJoinedRoomsAPI=async (roomarray)=>{
 //api to delete room id from user details
 
 export const delRoomIdAPI=async (roomid,userid)=>{
-  const res=await fetch(`https://codexabackend-production.up.railway.app/api/del/saved/id/${roomid}/from/user/${userid}`,{
+  const res=await fetch(`https://api.codexa.sbs/api/del/saved/id/${roomid}/from/user/${userid}`,{
     method:"DELETE"
   })
   const result=await res.json();
@@ -134,7 +134,7 @@ export const delRoomIdAPI=async (roomid,userid)=>{
 
 //to delete a room permanently
 export const delRoomPermaAPI=async (roomid)=>{
-  const res=await fetch(`https://codexabackend-production.up.railway.app/api/del/room/${roomid}`,{
+  const res=await fetch(`https://api.codexa.sbs/api/del/room/${roomid}`,{
     method:"DELETE"
   })
   const result=await res.json();
