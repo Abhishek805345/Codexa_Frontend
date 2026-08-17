@@ -1,5 +1,5 @@
 export const sessionCheck=async ()=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/sess",{
+  const res=await fetch("https://api.codexa.sbs/api/sess",{
     method:'GET',
     credentials:"include"
   })
@@ -8,7 +8,7 @@ export const sessionCheck=async ()=>{
 }
 
 export const findUser=async (data)=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/find/user",{
+  const res=await fetch("https://api.codexa.sbs/api/find/user",{
     method:'Post',
     headers:{
       "Content-Type":"application/json"
@@ -20,7 +20,7 @@ export const findUser=async (data)=>{
 }
 
 export const FindAfterUser=async (data)=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/find/after/user",{
+  const res=await fetch("https://api.codexa.sbs/api/find/after/user",{
     method:'Post',
     headers:{
       "Content-Type":"application/json"
@@ -32,7 +32,7 @@ export const FindAfterUser=async (data)=>{
 }
 
 export const PasswordChecker=async (data)=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/login/check",{
+  const res=await fetch("https://api.codexa.sbs/api/login/check",{
     method:'Post',
     credentials:"include",
     headers:{
@@ -45,7 +45,7 @@ export const PasswordChecker=async (data)=>{
 }
 
 export const OtpSender=async (data)=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/email/send/otp",{
+  const res=await fetch("https://api.codexa.sbs/api/email/send/otp",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -57,7 +57,7 @@ export const OtpSender=async (data)=>{
 }
 
 export const OtpChecking=async (data)=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/otp/validate",{
+  const res=await fetch("https://api.codexa.sbs/api/otp/validate",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -69,7 +69,7 @@ export const OtpChecking=async (data)=>{
 }
 
 export const PasswordSetter=async (data)=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/save-password",{
+  const res=await fetch("https://api.codexa.sbs/api/save-password",{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
@@ -81,7 +81,7 @@ export const PasswordSetter=async (data)=>{
 }
 
 export const RegisterUser=async (data)=>{
-  const res=await fetch("https://codexabackend-production.up.railway.app/api/save/data",{
+  const res=await fetch("https://api.codexa.sbs/api/save/data",{
     method:"POST",
     credentials:"include",
     headers:{
@@ -94,7 +94,7 @@ export const RegisterUser=async (data)=>{
 }
 
 export const findUserbyId=async (id)=>{
-  const res=await fetch(`https://codexabackend-production.up.railway.app/api/user/details/${id}`,{
+  const res=await fetch(`https://api.codexa.sbs/api/user/details/${id}`,{
     method:"GET"
   })
   const result=await res.json();
@@ -103,7 +103,7 @@ export const findUserbyId=async (id)=>{
 
 
 export const UpdateUser=async (id,data)=>{
-  const res=await fetch(`https://codexabackend-production.up.railway.app/api/update/user/${id}`,{
+  const res=await fetch(`https://api.codexa.sbs/api/update/user/${id}`,{
     method:"POST",
     headers:{
       "Content-Type":"application/json"
