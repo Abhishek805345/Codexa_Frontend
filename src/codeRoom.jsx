@@ -36,7 +36,7 @@ export function CodeRoom(){
 
 
   useEffect(()=>{
-     socket.current=io("https://codexabackend.railway.internal",{
+     socket.current=io("https://codexabackend-production.up.railway.app",{
        withCredentials: true;
      });
 
