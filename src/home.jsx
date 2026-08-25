@@ -22,9 +22,6 @@ export const UserDetailsFetcher=async ()=>{
   // const store_data=Store.getState();
   // const email=store_data.userReducer.email;
   //use the redux-persist localStorage to get the user details
-  Store.dispatch(loadingAction.loadingStateChanger({
-    newstatus:false
-  }));
   const data=localStorage.getItem("persist:root");
   const oneparsing=JSON.parse(data);
   const user=JSON.parse(oneparsing.userReducer);
@@ -43,5 +40,8 @@ export const UserDetailsFetcher=async ()=>{
       newusername:result.rusername
     }))
   }
+  Store.dispatch(loadingAction.loadingStateChanger({
+    newstatus:false
+  }))
   return 0;
 }

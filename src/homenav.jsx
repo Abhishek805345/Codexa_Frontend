@@ -1,7 +1,7 @@
 import css from "./style/home.module.css";
 import { RiArrowDropDownLine,RiArrowDropUpLine } from "react-icons/ri";
 import { MdOutlineSettings } from "react-icons/md";
-import Store, { stateActions, UserActions } from "../Utility/store";
+import Store, { loadingAction, stateActions, UserActions } from "../Utility/store";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { RoomHover } from "./roomhover";
@@ -29,6 +29,9 @@ export function HomeNav(){
         <Link className={css.codexa} to="/home"><button className={css.codexabut} onClick={()=>{
           Store.dispatch(stateActions.changer({
             newState:"Hero"
+          }))
+          Store.dispatch(loadingAction.loadingStateChanger({
+            newstatus:true
           }))
         }}><h1>Codexa</h1></button></Link>
         <div className={css.rightdiv}>

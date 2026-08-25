@@ -9,6 +9,7 @@ import { useActionState } from "react";
 
 export function Login() {
   const {errormsg}=useSelector(store=>store.stateReducer);
+  const {status}=useSelector(store=>store.loadingReducer);
   return (
     <div className={css.container}>
       <div className={css.card}>
@@ -55,6 +56,7 @@ export function Login() {
             }}  >Sign up</button>
         </p>
       </div>
+      {status===true?<Loading/>:null}
     </div>
   );
 }
@@ -109,10 +111,10 @@ if (shower==="Login"){
       Store.dispatch(UserActions.emailchanger({
         newemail:result.data.email
       }))
+      return Response.redirect("/home");
       Store.dispatch(loadingAction.loadingStateChanger({
         newstatus:false
       }))
-      return Response.redirect("/home");
     }else{
       //loading close
       Store.dispatch(loadingAction.loadingStateChanger({

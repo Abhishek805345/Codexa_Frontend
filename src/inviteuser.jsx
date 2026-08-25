@@ -23,7 +23,6 @@ export function InviteUser(){
           }}>Back</button>
         </Form>
     </div>
-   
     </>
     
   )

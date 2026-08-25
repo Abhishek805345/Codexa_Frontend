@@ -99,10 +99,10 @@ export const RoomLoader=async ()=>{
   const data=localStorage.getItem("persist:root");
   const firstparsing=JSON.parse(data);
   const user=JSON.parse(firstparsing.userReducer);
+  const result=await roomFetcher(user._id);
   Store.dispatch(loadingAction.loadingStateChanger({
     newstatus:false
   }));
-  const result=await roomFetcher(user._id);
   return ({
     codeRooms:result,
   });

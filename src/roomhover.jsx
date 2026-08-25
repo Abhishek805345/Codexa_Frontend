@@ -15,12 +15,12 @@ export function RoomHover(){
             }}><h3><MdCloseFullscreen/></h3></button>
             <div className={css.innerdiv}>
                 <Link to="/code/rooms" className={css.codelin} onClick={()=>{
+                        Store.dispatch(loadingAction.loadingStateChanger({
+                            newstatus:true
+                        }))
                         Store.dispatch(stateActions.changer({
                             newState:"Hero"
                         }))
-                        Store.dispatch(loadingAction.loadingStateChanger({
-                                newstatus:true
-                            }));
                         }}>
                     <button><h3><FaLaptopCode/></h3> Code Rooms</button>
                    <div>
@@ -29,12 +29,12 @@ export function RoomHover(){
                     </div>
                 </Link>
                 <Link to="/interview/rooms" className={css.interviewlin} onClick={()=>{
+                        Store.dispatch(loadingAction.loadingStateChanger({
+                            newstatus:true
+                        }))
                         Store.dispatch(stateActions.changer({
                             newState:"Hero"
                         }))
-                        Store.dispatch(loadingAction.loadingStateChanger({
-                            newstatus:true
-                        }));
                     }}>
                     <button><h3><MdStreetview/> </h3>Interview Rooms</button>
                     <div>
