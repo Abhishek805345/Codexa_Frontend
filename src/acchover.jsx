@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import css from "./style/acchover.module.css";
 import { MdCloseFullscreen } from "react-icons/md";
-import Store, { stateActions } from "../Utility/store";
+import Store, { loadingAction, stateActions } from "../Utility/store";
 import { MdLogout } from "react-icons/md";
 import { useSelector } from "react-redux";
 import { FaUserEdit } from "react-icons/fa";
@@ -27,6 +27,9 @@ export function AccHover(){
             Store.dispatch(stateActions.changer({
               newState:"Hero"
             }))
+            Store.dispatch(loadingAction.loadingStateChanger({
+                newstatus:true
+              }));
         }}>
         <button>
           <div className={css.rightinnerdiv}>

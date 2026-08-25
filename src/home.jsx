@@ -1,13 +1,12 @@
 import css from "./style/home.module.css";
 import { Footer } from "./footer";
-import Store, { stateActions, UserActions } from "../Utility/store";
+import Store, { loadingAction, stateActions, UserActions } from "../Utility/store";
 import { useSelector } from "react-redux";
 import { AfterLoginHero } from "./afterhero";
 import { HomeNav } from "./homenav";
 import { FindAfterUser } from "../Services/authentication";
 
 export function Home(){
-  const {shower}=useSelector(store=>store.stateReducer);
   return (
     <>  
       <HomeNav/>
@@ -23,6 +22,9 @@ export const UserDetailsFetcher=async ()=>{
   // const store_data=Store.getState();
   // const email=store_data.userReducer.email;
   //use the redux-persist localStorage to get the user details
+  Store.dispatch(loadingAction.loadingStateChanger({
+    newstatus:false
+  }));
   const data=localStorage.getItem("persist:root");
   const oneparsing=JSON.parse(data);
   const user=JSON.parse(oneparsing.userReducer);

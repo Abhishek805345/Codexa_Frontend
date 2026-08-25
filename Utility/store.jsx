@@ -56,7 +56,7 @@ const loadingSlice=createSlice({
   },
   reducers:{
     loadingStateChanger:(state,action)=>{
-      state.status=!state.status;
+      state.status=action.payload.newstatus;
     }
   }
 })

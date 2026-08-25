@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import Store, { stateActions, UserActions } from "../Utility/store";
+import Store, { loadingAction, stateActions, UserActions } from "../Utility/store";
 import css from "./style/password.module.css";
 import { Form, Link } from "react-router-dom";
 import { VscChevronLeft, VscChevronRight } from "react-icons/vsc";
@@ -10,6 +10,7 @@ export function Password(){
   const {shower,errormsg}=useSelector(store=>store.stateReducer);
   const {email}=useSelector(store=>store.userReducer);
   const {status}=useSelector(store=>store.loadingReducer);
+  console.log("status is sthis",status);
   return (
     <>
     {status===true?<Loading/>:
@@ -58,11 +59,15 @@ export function Password(){
         </Link>
       </div>
     </div>:<h1>Refresh the page</h1>}
+    {status===true?<Loading/>:null}
     </>
   )
 }
 
 export const PasswordManager=async ({request})=>{
+  Store.dispatch(loadingAction.loadingStateChanger({
+    newstatus:true
+  }))
   const data=await request.formData();
   const form_data=Object.fromEntries(data);
   const result=await PasswordChecker(form_data);
@@ -74,10 +79,17 @@ export const PasswordManager=async ({request})=>{
     Store.dispatch(UserActions.usernameChanger({
       newusername:result.data.username
     }))
+    //loading close
+    Store.dispatch(loadingAction.loadingStateChanger({
+     newstatus:false
+    }))
     return Response.redirect('/home');
   }else {
     Store.dispatch(stateActions.errorchanger({
       newerrormsg:"WrongPassword"
+    }))//loading close
+    Store.dispatch(loadingAction.loadingStateChanger({
+     newstatus:false
     }))
   }
 }

@@ -1,6 +1,6 @@
 import { Form, useLoaderData } from "react-router-dom";
 import { findUserbyId, UpdateUser } from "../Services/authentication";
-import Store, { stateActions } from "../Utility/store";
+import Store, { loadingAction, stateActions } from "../Utility/store";
 import css from "./style/edituser.module.css";
 import { HomeNav } from "./homenav";
 import { useSelector } from "react-redux";
@@ -109,6 +109,9 @@ export const UserLoader=async ()=>{
   const user=JSON.parse(oneparsing.userReducer);
   const userresult=await findUserbyId(user._id);
   const roomresult=await findJoinedRoomsAPI(userresult.room);
+  Store.dispatch(loadingAction.loadingStateChanger({
+    newstatus:false
+  }));
   return ({
     userresult:userresult,
     roomresult:roomresult

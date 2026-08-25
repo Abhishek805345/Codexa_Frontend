@@ -3,7 +3,7 @@ import { FaLaptopCode } from "react-icons/fa";
 import { MdStreetview } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { MdCloseFullscreen } from "react-icons/md";
-import Store, { stateActions } from "../Utility/store";
+import Store, { loadingAction, stateActions } from "../Utility/store";
 import { useSelector } from "react-redux";
 
 export function SettingHover(){
@@ -20,6 +20,9 @@ export function SettingHover(){
           Store.dispatch(stateActions.changer({
             newState:"Hero"
           }))
+          Store.dispatch(loadingAction.loadingStateChanger({
+              newstatus:true
+            }));
         }}>
         <h3><FaLaptopCode/> </h3>
         <button>Code room</button>

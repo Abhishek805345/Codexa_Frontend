@@ -3,7 +3,7 @@ import { delRoomPermaAPI, findHostedRooms } from "../Services/roomapi";
 import { HomeNav } from "./homenav";
 import { Navbar } from "./nav";
 import css from "./style/editrooms.module.css";
-import Store, { stateActions } from "../Utility/store";
+import Store, { loadingAction, stateActions } from "../Utility/store";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { DelHoverCard } from "./delhovercard";
@@ -74,5 +74,8 @@ export const roomLoaderForEdit=async ({params})=>{
   const {id}=params;
   console.log("user id is this",id);
   const result=await findHostedRooms(id);
+  Store.dispatch(loadingAction.loadingStateChanger({
+    newstatus:false
+  }));
   return (result);
 }

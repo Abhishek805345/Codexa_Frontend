@@ -7,9 +7,12 @@ import Store,{ stateActions, UserActions } from "../Utility/store";
 import { Register } from "./Register";
 import { Hero } from "./hero";
 import { sessionCheck } from "../Services/authentication";
+import { Loading } from "./loading";
 
 export function Navbar(){
   const {shower}=useSelector(store=>store.stateReducer);
+  const {status}=useSelector(store=>store.loadingReducer);
+  console.log("status is sthis",status);
   console.log(shower);
   return (
     <>
@@ -39,6 +42,7 @@ export function Navbar(){
       }
       {shower==="Register"?<Register/>:null}
       {shower==="Hero"?<Hero/>:null}
+      {status===true?<Loading/>:null}
     </>
   )
 } 

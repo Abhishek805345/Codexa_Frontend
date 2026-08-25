@@ -1,7 +1,7 @@
 import { Form, Link } from "react-router-dom";
 import css from "./style/roomhover.module.css";
 import { MdCloseFullscreen } from "react-icons/md";
-import Store, { stateActions } from "../Utility/store";
+import Store, { loadingAction, stateActions } from "../Utility/store";
 import { FaLaptopCode } from "react-icons/fa";
 import { MdStreetview } from "react-icons/md";
 
@@ -18,6 +18,9 @@ export function RoomHover(){
                         Store.dispatch(stateActions.changer({
                             newState:"Hero"
                         }))
+                        Store.dispatch(loadingAction.loadingStateChanger({
+                                newstatus:true
+                            }));
                         }}>
                     <button><h3><FaLaptopCode/></h3> Code Rooms</button>
                    <div>
@@ -29,6 +32,9 @@ export function RoomHover(){
                         Store.dispatch(stateActions.changer({
                             newState:"Hero"
                         }))
+                        Store.dispatch(loadingAction.loadingStateChanger({
+                            newstatus:true
+                        }));
                     }}>
                     <button><h3><MdStreetview/> </h3>Interview Rooms</button>
                     <div>

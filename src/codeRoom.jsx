@@ -36,9 +36,7 @@ export function CodeRoom(){
 
 
   useEffect(()=>{
-     socket.current=io("https://api.codexa.sbs",{
-       withCredentials: true;
-     });
+     socket.current=io("http://localhost:3001");
 
         socket.current.emit("join-room",({roomid:roominfo._id,username:fullname}));
 

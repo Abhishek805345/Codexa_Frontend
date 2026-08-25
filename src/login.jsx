@@ -62,6 +62,9 @@ export function Login() {
 
 
 export const loginAction=async ({request})=>{
+  Store.dispatch(loadingAction.loadingStateChanger({
+    newstatus:true
+  }))
 const data=await request.formData();
 const formdata=Object.fromEntries(data);
 const state=Store.getState();
@@ -75,13 +78,22 @@ if (shower==="Login"){
     Store.dispatch(UserActions.emailchanger({
       newemail:formdata.email
     }))
+    Store.dispatch(loadingAction.loadingStateChanger({
+    newstatus:false
+  }))
     return Response.redirect('/login');
   }else{
     Store.dispatch(stateActions.errorchanger({
       newerrormsg:"WrongUser"
+    }))//loading close
+    Store.dispatch(loadingAction.loadingStateChanger({
+     newstatus:false
     }))
   }
 }else if (shower==="Register"){
+  Store.dispatch(loadingAction.loadingStateChanger({
+    newstatus:true
+  }))
   console.log("this is the form data",formdata);
   if (formdata.password===formdata.confirmPassword){
     Store.dispatch(loadingAction.loadingStateChanger());
@@ -97,14 +109,25 @@ if (shower==="Login"){
       Store.dispatch(UserActions.emailchanger({
         newemail:result.data.email
       }))
+      Store.dispatch(loadingAction.loadingStateChanger({
+        newstatus:false
+      }))
       return Response.redirect("/home");
     }else{
+      //loading close
+      Store.dispatch(loadingAction.loadingStateChanger({
+        newstatus:false
+        }))
       return Response.redirect("/");
     }
   }else {
     Store.dispatch(stateActions.errorchanger({
       newerrormsg:"RegisterUnmatchedPasswords"
     }))
+    //loading close
+      Store.dispatch(loadingAction.loadingStateChanger({
+        newstatus:false
+        }))
   }
   
 }

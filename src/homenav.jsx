@@ -7,10 +7,13 @@ import { Link } from "react-router-dom";
 import { RoomHover } from "./roomhover";
 import { SettingHover } from "./settinghover";
 import {AccHover} from "./acchover";
+import { Loading } from "./loading";
 
 
 export function HomeNav(){
   const {shower}=useSelector(store=>store.stateReducer);
+  const {status}=useSelector(store=>store.loadingReducer);
+  console.log("status is this",status);
   return (
     <>
       <nav className={css.navdiv}>
@@ -44,6 +47,7 @@ export function HomeNav(){
       {shower==="Rooms"?<RoomHover/>:null}
       {shower==="Account"?<AccHover/>:null}
       {shower==="RoomSettings"?<SettingHover/>:null}
+      {status===true?<Loading/>:null}
       </>
   )
 }

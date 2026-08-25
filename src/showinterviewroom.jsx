@@ -1,6 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { interviewRoomFetcher } from "../Services/roomapi";
-import Store, { roomAction, stateActions } from "../Utility/store";
+import Store, { loadingAction, roomAction, stateActions } from "../Utility/store";
 import { HomeNav } from "./homenav";
 import css from "./style/showcoderoom.module.css";
 import { useSelector } from "react-redux";
@@ -98,7 +98,9 @@ export const interviewLoader=async ()=>{
   const data=localStorage.getItem("persist:root");
   const oneparsing=JSON.parse(data);
   const user=JSON.parse(oneparsing.userReducer);
-
   const result=await interviewRoomFetcher(user._id);
+  Store.dispatch(loadingAction.loadingStateChanger({
+    newstatus:false
+  }));
   return result;
 }
