@@ -12,6 +12,7 @@
   box-sizing: border-box;
   color: #fff;
   background: #07080a;
+  border-radius: 0.7rem;
 }
 
 .outerdiv::after {

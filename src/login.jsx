@@ -6,6 +6,7 @@ import Store, {loadingAction, stateActions, UserActions} from "../Utility/store"
 import {findUser, RegisterUser} from "../Services/authentication";
 import { useSelector } from "react-redux";
 import { useActionState } from "react";
+import { Loading } from "./loading";
 
 export function Login() {
   const {errormsg}=useSelector(store=>store.stateReducer);
@@ -87,9 +88,6 @@ if (shower==="Login"){
   }else{
     Store.dispatch(stateActions.errorchanger({
       newerrormsg:"WrongUser"
-    }))//loading close
-    Store.dispatch(loadingAction.loadingStateChanger({
-     newstatus:false
     }))
   }
 }else if (shower==="Register"){
@@ -112,9 +110,6 @@ if (shower==="Login"){
         newemail:result.data.email
       }))
       return Response.redirect("/home");
-      Store.dispatch(loadingAction.loadingStateChanger({
-        newstatus:false
-      }))
     }else{
       //loading close
       Store.dispatch(loadingAction.loadingStateChanger({

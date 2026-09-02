@@ -1,41 +1,44 @@
 import css from "./style/hero.module.css";
+import a from "./assets/a.png";
+import b from "./assets/b.png";
+import c from "./assets/c.png";
+import d from "./assets/d.png";
+import e from "./assets/e.png";
 
 const slides = [
   {
-    title: "Landscapes",
+    title: "Home",
     accent: "#7ecb32",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85",
+    image: a,
   },
   {
-    title: "Portraits",
+    title: "Create Rooms",
     accent: "#ff2626",
-    image:
-      "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=1200&q=85",
+    image: b,
   },
   {
-    title: "Abstracts",
+    title: "Code Rooms",
     accent: "#f23b32",
-    image:
-      "https://images.unsplash.com/photo-1550684376-efcbd6e3f031?auto=format&fit=crop&w=1200&q=85",
+    image: d,
   },
   {
-    title: "Athletics",
+    title: "User config",
     accent: "#f79b2f",
-    image:
-      "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1200&q=85",
+    image: c,
   },
   {
-    title: "Escapes",
+    title: "Room config",
     accent: "#37b7d8",
-    image:
-      "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=85",
+    image: e,
   },
 ];
 
 export function Hero() {
   return (
-    <section className={css.outerdiv} aria-label="Featured image stories">
+    <section
+      className={css.outerdiv}
+      aria-label="Featured image stories"
+    >
       <div className={css.backdrops}>
         {slides.map((slide, index) => (
           <div
@@ -54,11 +57,16 @@ export function Hero() {
           <div
             className={css.copySlide}
             key={slide.title}
-            style={{ "--delay": `${index * 4}s`, "--accent": slide.accent }}
+            style={{
+              "--delay": `${index * 4}s`,
+              "--accent": slide.accent,
+            }}
           >
             <h1>{slide.title}</h1>
-            
-            <button type="button">Explore Now</button>
+
+            <button type="button">
+              Explore Now
+            </button>
           </div>
         ))}
       </div>
@@ -81,7 +89,12 @@ export function Hero() {
 
       <div className={css.dots} aria-hidden="true">
         {slides.map((slide, index) => (
-          <span key={slide.title} style={{ "--delay": `${index * 4}s` }} />
+          <span
+            key={slide.title}
+            style={{
+              "--delay": `${index * 4}s`,
+            }}
+          />
         ))}
       </div>
     </section>

@@ -22,7 +22,7 @@ export function RoomConfig(){
     <HomeNav/>
      <section className={css.container}>
           <div className={css.heading}>
-            <h1>Create Your Room</h1>
+            <h1>Edit Your Room Config Here</h1>
             <p>
               Start collaborating with your teammates in a secure coding
               workspace.
