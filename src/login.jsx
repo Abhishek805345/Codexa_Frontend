@@ -83,11 +83,15 @@ if (shower==="Login"){
     }))
     Store.dispatch(loadingAction.loadingStateChanger({
     newstatus:false
-  }))
+    }))
     return Response.redirect('/login');
   }else{
     Store.dispatch(stateActions.errorchanger({
       newerrormsg:"WrongUser"
+    }))
+    
+    Store.dispatch(loadingAction.loadingStateChanger({
+      newstatus:false
     }))
   }
 }else if (shower==="Register"){
@@ -96,9 +100,11 @@ if (shower==="Login"){
   }))
   console.log("this is the form data",formdata);
   if (formdata.password===formdata.confirmPassword){
-    Store.dispatch(loadingAction.loadingStateChanger());
+    Store.dispatch(loadingAction.loadingStateChanger({
+      newstatus:true
+    }))
     const result=await RegisterUser(formdata);
-    Store.dispatch(loadingAction.loadingStateChanger());
+    console.log(result);
     if (result.status===true){
       Store.dispatch(UserActions._idChanger({
         new_id:result.data._id
@@ -109,12 +115,29 @@ if (shower==="Login"){
       Store.dispatch(UserActions.emailchanger({
         newemail:result.data.email
       }))
+      Store.dispatch(
+        loadingAction.loadingStateChanger({
+          newstatus: true,
+        }),
+      );
       return Response.redirect("/home");
-    }else{
+    }else if (result.status.gmail===true){
       //loading close
       Store.dispatch(loadingAction.loadingStateChanger({
         newstatus:false
         }))
+      Store.dispatch(stateActions.errorchanger({
+        newerrormsg:"EmailRegistered"
+      }))
+      return Response.redirect("/");
+    }else if(result.status===false){
+       //loading close
+      Store.dispatch(loadingAction.loadingStateChanger({
+        newstatus:false
+        }))
+      Store.dispatch(stateActions.errorchanger({
+        newerrormsg:"UsernameRegistered"
+      }))
       return Response.redirect("/");
     }
   }else {

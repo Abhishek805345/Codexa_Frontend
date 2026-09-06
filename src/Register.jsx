@@ -38,14 +38,14 @@ export function Register(){
             placeholder="Username"
             required
           />
-
+          {errormsg==="UsernameRegistered"?<p style={{"color":"red","fontSize":"11px"}}>Username is already registered</p>:null}
           <input
             type="email"
             name="email"
             placeholder="Email Address"
             required
           />
-
+          {errormsg==="EmailRegistered"?<p style={{"color":"red","fontSize":"11px"}}>Email is already registered</p>:null}
           <input
             type="password"
             name="password"
